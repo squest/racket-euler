@@ -41,6 +41,16 @@
               (iter (+ i 2) res))))
     (iter hlim (outer 3 2))))
 
+(define-syntax-rule (fn bind body)
+  (lambda bind body))
+
+
+
+
+
+
+
+
 
 
 
