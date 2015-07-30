@@ -1,0 +1,10 @@
+#lang racket
+
+(define (sieve lim)
+  (let [(primes (make-array (+ lim 1) false))
+        (llim (integer-sqrt lim))]
+    (for [(i (range 3 (+ lim 1) 2))
+          #:when (vector-ref primes i)]
+      (for [(j (range (* i i) (+ lim 1) (* i 2)))]
+        (vector-set! primes j false)))
+    (cons 2 (filter (λ (x) (aget primes x)) (range 3 (+ lim 1) 2)))))
